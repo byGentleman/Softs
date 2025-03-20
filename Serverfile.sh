@@ -73,6 +73,8 @@ case $CHOICE in
         pip install --upgrade pip
         pip install requests
         deactivate
+        
+        cd  # Возвращаемся в домашнюю директорию
 
         # Скачивание бота
         BOT_URL="https://raw.githubusercontent.com/byGentleman/Softs/main/HyperChatter.py"
@@ -151,10 +153,10 @@ EOT"
         sudo systemctl stop hyper-bot.service
         sleep 2
         QUESTIONS_FILE="$HOME/hyperbolic/questions.txt"
-        echo -e "${YELLOW}Данное действие полностью очищает файл с вопросами и заменяет на ваши. Их вводить можно партиями. Скрипт начнёт работать после нажатия комбинации CTRL + D, до этого можете вводить вопросы: 1 строка - 1 вопрос. Ждите...........${NC}"
+        echo -e "${YELLOW}Данное действие полностью очищает файл с вопросами и заменяет на ваши. Их вводить можно партиями. Скрипт начнёт работать после нажатия комбинации CTRL + D, до этого можете вводить вопросы: 1 строка - вопрос.${NC}"
         sleep 15
         > "$QUESTIONS_FILE"
-        echo -e "${YELLOW}Вставьте ваши вопросы ${NC}"
+        echo -e "${YELLOW}Вставьте ваши вопросы (каждая строка — отдельный вопрос)${NC}"
         echo -e "${BLINK_GREEN}Когда закончите, нажмите Ctrl+D:${NC}"
         cat > "$QUESTIONS_FILE"
         sudo systemctl restart hyper-bot.service
